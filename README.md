@@ -1,13 +1,35 @@
-# Rate Limiting Middleware (.NET 8 Web API)
+# Rate Limiting Service Api (.NET 8 Web API)
 
 ## 📌 Overview
 
-This project demonstrates a custom **Rate Limiting Middleware** built using .NET 8 Web API. The middleware is designed to prevent abuse of API endpoints by limiting the number of requests from a given IP address within a configurable time window.
+This project demonstrates a custom **Rate Limiting Service Api** built using .NET 8 Web API. The middleware is designed to prevent abuse of API endpoints by limiting the number of requests from a given IP address within a configurable time window.
 
 It is highly relevant in scenarios where:
 - You want to protect your backend from brute-force or DoS attacks.
 - You need per-user/IP throttling.
 - You want a lightweight and configurable solution without relying on external API gateways.
+
+---
+
+### 📌 Problem, Context, and Solution
+❓ **Problem Being Solved**
+APIs exposed to the public or third-party clients are vulnerable to abuse through excessive or malicious requests (e.g., brute-force login attempts, scraping, DoS attacks). Without proper control, this leads to:
+- Degraded performance or downtime
+- Increased infrastructure costs
+- Poor user experience
+
+### 🧩 Complexity Involved
+- Tracking and limiting user/IP requests in real time
+- Ensuring thread safety and performance under concurrent traffic
+- Keeping the solution lightweight and configurable
+- Optionally enabling it to scale across servers or containers
+
+### ✅ Solution Implemented
+- I developed a custom rate-limiting middleware using .NET 7 that:
+- Intercepts all incoming requests
+- Tracks requests per IP in memory
+- Throttles requests based on limits defined in appsettings.json
+- Returns HTTP 429 when limits are exceeded
 
 ---
 
@@ -36,7 +58,6 @@ It is highly relevant in scenarios where:
 ### **🧪 Quality Checks (Unit Tests)**
 Written using xUnit which covers; 
 - Whether limits are respected correctly.
-
 - Middleware behavior when over-limit is reached.
 
 ---
