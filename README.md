@@ -13,6 +13,7 @@ It is highly relevant in scenarios where:
 
 ### 📌 Problem, Context, and Solution
 ❓ **Problem Being Solved**
+
 APIs exposed to the public or third-party clients are vulnerable to abuse through excessive or malicious requests (e.g., brute-force login attempts, scraping, DoS attacks). Without proper control, this leads to:
 - Degraded performance or downtime
 - Increased infrastructure costs
