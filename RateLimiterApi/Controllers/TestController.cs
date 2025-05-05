@@ -11,7 +11,11 @@ namespace RateLimiterApi.Controllers
         [HttpGet("ping")]
         public IActionResult Ping()
         {
-            return Ok("Requests within the Time Range.");
+            return Ok(new
+            {
+                status = 200,
+                message = "Request accepted within rate limit.",
+            });
         }
     }
 }

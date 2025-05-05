@@ -1,4 +1,5 @@
 ﻿using RateLimiterApi.Services;
+using System.Text.Json;
 
 namespace RateLimiterApi.Middleware
 {
@@ -21,12 +22,21 @@ namespace RateLimiterApi.Middleware
             if (!_rateLimitService.AllowRequest(ipAddress))
             {
                 context.Response.StatusCode = StatusCodes.Status429TooManyRequests;
-                await context.Response.WriteAsync("Too many requests. Please try again later.");
+                context.Response.ContentType = "application/json";
+
+                var errorResponse = new
+                {
+                    status = 429,
+                    message = "Too many requests. Please try again later.",
+                };
+
+                await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
                 return;
             }
 
             // Proceed with the next middleware in the pipeline
             await _next(context);
         }
+
     }
 }
