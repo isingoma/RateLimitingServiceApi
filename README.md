@@ -69,11 +69,11 @@ Written using xUnit which covers;
 git clone https://github.com/isingoma/RateLimitingServiceApi.git
 
 
-**3. Try it in Swagger UI:**
+**2. Try it in Swagger UI:**
 Visit: https://localhost:5001/swagger
 Use: GET /api/ping
 
-**4. Test the rate limit:**
+**3. Test the rate limit:**
 Call /api/ping more than 5 times in 10 seconds → You'll receive:
 
 {
