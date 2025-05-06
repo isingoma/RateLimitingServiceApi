@@ -26,7 +26,7 @@ APIs exposed to the public or third-party clients are vulnerable to abuse throug
 - Optionally enabling it to scale across servers or containers
 
 ### ✅ Solution Implemented
-- I developed a custom rate-limiting middleware using .NET 7 that:
+- I developed a custom rate-limiting middleware using .NET 8 that:
 - Intercepts all incoming requests
 - Tracks requests per IP in memory
 - Throttles requests based on limits defined in appsettings.json
